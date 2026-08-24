@@ -1,0 +1,31 @@
+{
+  "name": "codex-plugin-grok",
+  "contractVersion": "1.0.0",
+  "host": "grok-build",
+  "defaults": {
+    "model": "gpt-5.6-sol",
+    "effort": "max"
+  },
+  "commands": [
+    "setup",
+    "review",
+    "adversarial-review",
+    "rescue",
+    "status",
+    "result",
+    "cancel"
+  ],
+  "nearTerm": [
+    "session-end-skips-broker-teardown-when-foreign-jobs-active",
+    "broker-shutdown-refuses-when-busy",
+    "result-reconciles-dead-workers",
+    "review-docs-expose-model-effort"
+  ],
+  "mediumTerm": [
+    "schema-validated-handoff-envelope",
+    "versioned-workflow-contract-sha",
+    "stop-gate-eval-corpus-false-approve"
+  ],
+  "handoffSchema": "schemas/handoff-envelope.schema.json",
+  "evalCorpus": "eval/stop-gate-corpus.json"
+}

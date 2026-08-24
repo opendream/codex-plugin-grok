@@ -1,0 +1,36 @@
+{
+  "corpusVersion": "1.0.0",
+  "description": "Minimal stop-gate calibration corpus. gateOutput is executable companion-style first-line output parsed by parseStopGateVerdict.",
+  "cases": [
+    {
+      "id": "clean-typo-only",
+      "oracle": "ALLOW",
+      "gateOutput": "ALLOW: Cosmetic-only change.",
+      "notes": ""
+    },
+    {
+      "id": "missing-auth-check",
+      "oracle": "BLOCK",
+      "gateOutput": "BLOCK: Missing auth check on write path.",
+      "notes": ""
+    },
+    {
+      "id": "silent-data-loss",
+      "oracle": "BLOCK",
+      "gateOutput": "ALLOW: Looks fine.",
+      "notes": "false approve"
+    },
+    {
+      "id": "docs-only",
+      "oracle": "ALLOW",
+      "gateOutput": "ALLOW: Documentation-only.",
+      "notes": ""
+    },
+    {
+      "id": "race-on-cancel",
+      "oracle": "BLOCK",
+      "gateOutput": "BLOCK: Cancel race can clobber terminal status.",
+      "notes": ""
+    }
+  ]
+}

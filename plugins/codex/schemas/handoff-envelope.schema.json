@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/opendream/codex-plugin-grok/schemas/handoff-envelope.schema.json",
+  "title": "CodexCompanionHandoffEnvelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "plugin",
+    "kind",
+    "jobId",
+    "status",
+    "workspaceRoot",
+    "createdAt"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "plugin": {
+      "type": "string",
+      "const": "codex"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "task",
+        "review",
+        "adversarial-review",
+        "stop-gate"
+      ]
+    },
+    "jobId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "queued",
+        "running",
+        "completed",
+        "failed",
+        "cancelled"
+      ]
+    },
+    "workspaceRoot": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sessionId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "threadId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "model": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "effort": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "summary": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "completedAt": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

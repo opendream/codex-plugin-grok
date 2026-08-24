@@ -1,0 +1,24 @@
+{
+  "name": "codex-grok",
+  "description": "Codex plugins to use in Grok Build for delegation and code review.",
+  "owner": {
+    "name": "opendream"
+  },
+  "metadata": {
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "codex",
+      "description": "Use Codex from Grok Build to review code or delegate tasks.",
+      "version": "1.0.0",
+      "author": {
+        "name": "opendream"
+      },
+      "source": {
+        "type": "local",
+        "path": "./plugins/codex"
+      }
+    }
+  ]
+}
