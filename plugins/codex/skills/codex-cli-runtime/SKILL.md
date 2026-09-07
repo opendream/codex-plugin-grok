@@ -18,7 +18,7 @@ Execution rules:
 - Use `task` for every rescue request, including diagnosis, planning, research, and explicit fix requests.
 - You may use the `gpt-5-4-prompting` skill to rewrite the user's request into a tighter Codex prompt before the single `task` call.
 - That prompt drafting is the only Grok-side work allowed. Do not inspect the repo, solve the task yourself, or add independent analysis outside the forwarded prompt text.
-- Omit `--model` / `--effort` so companion defaults apply unless the user explicitly requests overrides. Companion defaults: `--model gpt-5.6-sol` and `--effort max`.
+- Omit `--model` / `--effort` so companion defaults apply unless the user explicitly requests overrides. Companion defaults: `--model gpt-6-astra` and `--effort xhigh`.
 - Map `sol` to `--model gpt-5.6-sol`.
 - Map `spark` to `--model gpt-5.3-codex-spark`.
 - Default to a write-capable Codex run by adding `--write` unless the user explicitly asks for read-only behavior or only wants review, diagnosis, or research without edits.

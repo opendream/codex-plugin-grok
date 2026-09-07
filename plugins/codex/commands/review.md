@@ -12,7 +12,7 @@ Raw slash-command arguments:
 
 Model / effort:
 - `--model` and `--effort` are runtime-selection flags (same as `/codex:rescue`).
-- Omit `--model` / `--effort` unless the user asks; companion defaults to `gpt-5.6-sol` at `max`.
+- Omit `--model` / `--effort` unless the user asks; companion defaults to `gpt-6-astra` at `xhigh`.
 - `sol` → `gpt-5.6-sol`; `spark` → `gpt-5.3-codex-spark`.
 - Native review applies the model on `thread/start` (no effort field on `review/start`).
 

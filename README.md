@@ -49,7 +49,7 @@ codex login
 
 You should then see `/codex:*` slash commands and the `codex:codex-rescue` subagent.
 
-**Update to latest GitHub main:**
+**Update to latest GitHub `main`** (this is how other machines pick up a merged default change):
 
 ```bash
 grok plugin update codex
@@ -58,7 +58,7 @@ grok plugin update codex
 # grok plugin install codex --trust
 ```
 
-Editing a local git checkout alone does **not** refresh `~/.grok/installed-plugins` — always `update` / reinstall after you push.
+Then reload plugins (`r` in the Plugins tab) **or start a new Grok session**. Editing a local git checkout alone does **not** refresh `~/.grok/installed-plugins` — always `update` / reinstall after GitHub `main` moves. You do not need to re-add the marketplace.
 
 ### From a local clone (dev)
 
@@ -123,20 +123,20 @@ grok plugin marketplace remove codex-plugin-grok
 
 This plugin wraps the [Codex app server](https://developers.openai.com/codex/app-server) via your local `codex` binary and the same [Codex config](https://developers.openai.com/codex/config-basic) (`~/.codex/config.toml`, `.codex/config.toml`).
 
-The companion **hard-defaults** to **`gpt-5.6-sol`** / **`max`** on task and adversarial-review turns (and Sol on native review `thread/start`). Pass `--model` / `--effort` to override — `config.toml` alone does not change what the companion forwards.
+The companion **hard-defaults** to **`gpt-6-astra`** / **`xhigh`** on task and adversarial-review turns (and Astra on native review `thread/start`). Pass `--model` / `--effort` to override — `config.toml` alone does not change what the companion forwards.
 
 Recommended matching CLI config:
 
 ```toml
-model = "gpt-5.6-sol"
-model_reasoning_effort = "max"
+model = "gpt-6-astra"
+model_reasoning_effort = "xhigh"
 ```
 
 Delegated tasks and stop-gate runs can be resumed in Codex with `codex resume <session-id>` when `/codex:status` or `/codex:result` prints a session ID.
 
 ## Cost / usage
 
-- Defaults: **`gpt-5.6-sol`** at **`max`** when `--model` / `--effort` are omitted (`sol` maps to `gpt-5.6-sol`; `spark` maps to `gpt-5.3-codex-spark`).
+- Defaults: **`gpt-6-astra`** at **`xhigh`** when `--model` / `--effort` are omitted (`sol` maps to `gpt-5.6-sol`; `spark` maps to `gpt-5.3-codex-spark`).
 - The companion `result` payload does **not** currently surface token or USD cost fields. Check your ChatGPT / OpenAI usage UI for spend.
 
 ## Known Issues

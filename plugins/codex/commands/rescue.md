@@ -42,7 +42,7 @@ Operating rules:
 - Return the Codex companion stdout verbatim to the user.
 - Do not paraphrase, summarize, rewrite, or add commentary before or after it.
 - Do not ask the subagent to inspect files, monitor progress, poll `/codex:status`, fetch `/codex:result`, call `/codex:cancel`, summarize output, or do follow-up work of its own.
-- Omit `--model` / `--effort` so companion defaults apply unless the user explicitly requests overrides. Companion defaults to `gpt-5.6-sol` at `max`.
+- Omit `--model` / `--effort` so companion defaults apply unless the user explicitly requests overrides. Companion defaults to `gpt-6-astra` at `xhigh`.
 - If they ask for `sol`, map to `gpt-5.6-sol`. If they ask for `spark`, map to `gpt-5.3-codex-spark`.
 - Leave `--resume` and `--fresh` in the forwarded request. The subagent handles that routing when it builds the `task` command.
 - If the helper reports that Codex is missing or unauthenticated, stop and tell the user to run `/codex:setup`.
