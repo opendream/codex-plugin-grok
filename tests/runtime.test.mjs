@@ -384,6 +384,9 @@ test("adversarial review renders structured findings over app-server turn/start"
 
   assert.equal(result.status, 0);
   assert.match(result.stdout, /Missing empty-state guard/);
+  const fakeState = JSON.parse(fs.readFileSync(path.join(binDir, "fake-codex-state.json"), "utf8"));
+  assert.equal(fakeState.lastTurnStart.model, "gpt-6-astra");
+  assert.equal(fakeState.lastTurnStart.effort, "xhigh");
 });
 
 test("adversarial review accepts the same base-branch targeting as review", () => {
@@ -784,7 +787,7 @@ test("task forwards model selection and reasoning effort to app-server turn/star
   assert.equal(fakeState.lastTurnStart.effort, "low");
 });
 
-test("task defaults to gpt-5.6-sol at max when model and effort are unset", () => {
+test("task defaults to gpt-6-astra at xhigh when model and effort are unset", () => {
   const repo = makeTempDir();
   const binDir = makeTempDir();
   const statePath = path.join(binDir, "fake-codex-state.json");
@@ -801,8 +804,8 @@ test("task defaults to gpt-5.6-sol at max when model and effort are unset", () =
 
   assert.equal(result.status, 0, result.stderr);
   const fakeState = JSON.parse(fs.readFileSync(statePath, "utf8"));
-  assert.equal(fakeState.lastTurnStart.model, "gpt-5.6-sol");
-  assert.equal(fakeState.lastTurnStart.effort, "max");
+  assert.equal(fakeState.lastTurnStart.model, "gpt-6-astra");
+  assert.equal(fakeState.lastTurnStart.effort, "xhigh");
 });
 
 test("task logs reasoning summaries and assistant messages to the job log", () => {

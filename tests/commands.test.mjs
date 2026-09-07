@@ -100,7 +100,7 @@ test("rescue command absorbs continue semantics for Grok", () => {
   assert.match(rescue, /default to foreground/i);
   assert.match(rescue, /Do not forward them to `task`/i);
   assert.match(rescue, /`--model` and `--effort` are runtime-selection flags/i);
-  assert.match(rescue, /companion defaults to `gpt-5\.6-sol` at `max`/i);
+  assert.match(rescue, /companion defaults to `gpt-6-astra` at `xhigh`/i);
   assert.match(rescue, /If they ask for `spark`, map to `gpt-5\.3-codex-spark`/i);
   assert.match(rescue, /If the request includes `--resume`, do not ask whether to continue/i);
   assert.match(rescue, /If the request includes `--fresh`, do not ask whether to continue/i);
@@ -119,7 +119,7 @@ test("rescue command absorbs continue semantics for Grok", () => {
   assert.match(agent, /Use exactly one `run_terminal_command` call/i);
   assert.match(agent, /Do not inspect the repository, read files, grep, monitor progress, poll status, fetch results, cancel jobs, summarize output, or do any follow-up work of your own/i);
   assert.match(agent, /Do not call `review`, `adversarial-review`, `status`, `result`, or `cancel`/i);
-  assert.match(agent, /companion defaults to `gpt-5\.6-sol` at `max`/i);
+  assert.match(agent, /companion defaults to `gpt-6-astra` at `xhigh`/i);
   assert.match(agent, /If the user asks for `spark`, map that to `--model gpt-5\.3-codex-spark`/i);
   assert.match(agent, /Return the stdout of the `codex-companion` command exactly as-is/i);
   assert.match(agent, /If the shell call fails or Codex cannot be invoked, return nothing/i);
@@ -129,7 +129,7 @@ test("rescue command absorbs continue semantics for Grok", () => {
   assert.match(runtimeSkill, /Do not call `setup`, `review`, `adversarial-review`, `status`, `result`, or `cancel`/i);
   assert.match(runtimeSkill, /use the `gpt-5-4-prompting` skill to rewrite the user's request into a tighter Codex prompt/i);
   assert.match(runtimeSkill, /That prompt drafting is the only Grok-side work allowed/i);
-  assert.match(runtimeSkill, /Companion defaults: `--model gpt-5\.6-sol` and `--effort max`/i);
+  assert.match(runtimeSkill, /Companion defaults: `--model gpt-6-astra` and `--effort xhigh`/i);
   assert.match(runtimeSkill, /Map `spark` to `--model gpt-5\.3-codex-spark`/i);
   assert.match(runtimeSkill, /If the forwarded request includes `--background` or `--wait`, treat that as Grok-side execution control only/i);
   assert.match(runtimeSkill, /Strip it before calling `task`/i);
@@ -144,13 +144,15 @@ test("rescue command absorbs continue semantics for Grok", () => {
   assert.match(readme, /\/codex:result/);
   assert.match(readme, /\/codex:cancel/);
   assert.match(readme, /transfer.*deferred/i);
-  assert.match(readme, /gpt-5\.6-sol`\*\* at \*\*`max`\*\*/i);
+  assert.match(readme, /gpt-6-astra`\*\* at \*\*`xhigh`\*\*/i);
   assert.match(readme, /Install \/ update/i);
   assert.match(readme, /opendream\/codex-plugin-grok/);
   assert.match(readme, /grok plugin marketplace add https:\/\/github\.com\/opendream\/codex-plugin-grok\.git/);
   assert.match(readme, /grok plugin install codex --trust/);
   assert.match(readme, /grok plugin enable codex/);
   assert.match(readme, /grok plugin update codex/);
+  assert.match(readme, /Editing a local git checkout/i);
+  assert.match(readme, /start a new Grok session/i);
   assert.match(readme, /SessionEnd/i);
   assert.match(readme, /false-approve/i);
   assert.match(readme, /workflow-contract\.json/);

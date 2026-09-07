@@ -74,8 +74,8 @@ const MODEL_ALIASES = new Map([
   ["spark", "gpt-5.3-codex-spark"],
   ["sol", "gpt-5.6-sol"]
 ]);
-const DEFAULT_MODEL = "gpt-5.6-sol";
-const DEFAULT_EFFORT = "max";
+const DEFAULT_MODEL = "gpt-6-astra";
+const DEFAULT_EFFORT = "xhigh";
 const STOP_REVIEW_TASK_MARKER = "Run a stop-gate review of the previous Grok turn.";
 
 function printUsage() {

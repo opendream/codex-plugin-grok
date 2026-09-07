@@ -25,8 +25,8 @@ test("workflow-contract SHA matches pinned sha256 file", () => {
   const { contract, sha256, filePath } = loadWorkflowContract(PLUGIN_ROOT);
   assert.match(filePath, /workflow-contract\.json$/);
   assert.equal(contract.contractVersion, "1.0.0");
-  assert.equal(contract.defaults.model, "gpt-5.6-sol");
-  assert.equal(contract.defaults.effort, "max");
+  assert.equal(contract.defaults.model, "gpt-6-astra");
+  assert.equal(contract.defaults.effort, "xhigh");
   const pinned = fs.readFileSync(path.join(PLUGIN_ROOT, "workflow-contract.sha256"), "utf8").trim();
   assert.equal(sha256, pinned);
 });
@@ -107,7 +107,7 @@ test("result --json emits schema-validated handoff envelope and workflow SHA", (
   const payload = JSON.parse(result.stdout);
   assert.equal(payload.handoffValidation.ok, true, JSON.stringify(payload.handoffValidation));
   assert.equal(payload.handoff.plugin, "codex");
-  assert.equal(payload.workflowContract.defaults.effort, "max");
+  assert.equal(payload.workflowContract.defaults.effort, "xhigh");
   const pinned = fs.readFileSync(path.join(PLUGIN_ROOT, "workflow-contract.sha256"), "utf8").trim();
   assert.equal(payload.workflowContract.sha256, pinned);
 });

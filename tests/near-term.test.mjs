@@ -155,8 +155,8 @@ test("review and adversarial-review docs expose --model and --effort", () => {
   const adversarial = fs.readFileSync(path.join(ROOT, "plugins/codex/commands/adversarial-review.md"), "utf8");
   assert.match(review, /--model <model\|sol\|spark>/);
   assert.match(review, /--effort <none\|minimal\|low\|medium\|high\|xhigh\|ultra\|max>/);
-  assert.match(review, /companion defaults to `gpt-5\.6-sol` at `max`|gpt-5\.6-sol` at `max`/);
+  assert.match(review, /companion defaults to `gpt-6-astra` at `xhigh`|gpt-6-astra` at `xhigh`/);
   assert.match(adversarial, /--model <model\|sol\|spark>/);
   assert.match(adversarial, /--effort <none\|minimal\|low\|medium\|high\|xhigh\|ultra\|max>/);
-  assert.match(adversarial, /companion defaults to `gpt-5\.6-sol` at `max`|gpt-5\.6-sol` at `max`/);
+  assert.match(adversarial, /companion defaults to `gpt-6-astra` at `xhigh`|gpt-6-astra` at `xhigh`/);
 });
